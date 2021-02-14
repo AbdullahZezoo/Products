@@ -1,7 +1,7 @@
 Used Tools:-
 _____________
 Visual Studio 2019
-Asp .Net core 3.1 and Angular 8 and EF 
+Asp .Net core 3.1 and Angular 8 and EF and MS SQL Server
 postman
 
 
