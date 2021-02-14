@@ -1,0 +1,39 @@
+<h1>Products</h1>
+
+<p *ngIf="!(products$ | async)"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/add-product']" class="btn btn-primary float-right mb-3">New Product</a>
+</p>
+
+  <div [formGroup]="searchGroup">
+    <input type="text" formControlName="data" class="" />
+    <input type="submit" (click)="search()" value="search" class="btn btn-sm btn-danger"/>
+  </div>
+<br/>
+<button (click)="exportToExcel()" class="btn btn-primary float-right mb-3">Export Data</button>
+
+<table class="table table-sm table-hover" *ngIf="(products$ | async)?.length>0" id="sheet">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Price</th>
+      <th>Last Updated</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of (products$ | async)">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td><img src="{{ p.photo }}" ></td>
+      <td>{{ p.price }}</td>
+      <td>{{ p.lastUpdated | date: "dd.MM.y" }}</td>
+      <td><a [routerLink]="['/edit-product/',p.id]" class="btn btn-primary btn-sm float-right">Edit</a></td>
+      <td><a (click)="delete(p.id)" class="btn btn-danger btn-sm float-right">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
