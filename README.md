@@ -9,9 +9,11 @@ postman
 
 Install Packages:-
 _________________
-1-asp .net core
-2-nodejs
-3-angular 8 cli
+asp .net core
+
+nodejs
+
+angular 8 cli
 
 
 
@@ -20,7 +22,9 @@ npm command install used:-
 ___________________________
 
 npm i -g @angular/cli
+
 npm i rxjs
+
 npm i xlsx --save
 
 
